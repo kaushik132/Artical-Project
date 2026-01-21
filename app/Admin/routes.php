@@ -14,4 +14,6 @@ Route::group([
     $router->get('/', 'HomeController@index')->name('home');
     $router->resource('profiles', ProfileController::class);
 
+    $router->resource('artical-categories', ArticalCategoryController::class);
+
 });
