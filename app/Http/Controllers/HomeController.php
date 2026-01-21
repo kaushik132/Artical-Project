@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Profile;
+use App\Models\ArticalCategory;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('index');
+        $articalcategories = ArticalCategory::all();
+
+        return view('index',compact('articalcategories'));
     }
 
 

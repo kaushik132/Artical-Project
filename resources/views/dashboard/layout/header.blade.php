@@ -7,16 +7,16 @@
 
     <title>Desh Seduniya</title>
 
-   <link rel="icon" type="image/png" sizes="32x32" href="{{url('assets/images/favicon.png')}}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{url('assets/images/favicon.png')}}">
-<link rel="shortcut icon" href="{{url('assets/images/favicon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}">
 
-    <link rel="stylesheet" href="{{url('assets/css/owl.theme.default.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{url('assets/css/owl.carousel.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{url('assets/css/all.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{url('assets/css/bootstrap.min.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{url('assets/css/style.css')}}" type="text/css">
-    <link rel="stylesheet" href="{{url('assets/css/responsive.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/all.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Google Font -->
@@ -40,8 +40,8 @@
             <div class="container">
                 <div class="headermn">
                     <nav class="navbar navbar-expand-lg p-0 align-items-center">
-                        <a class="navbar-brand" href="{{url('/')}}">
-                            <img src="{{url('assets/images/logo.png')}}" alt="Logo">
+                        <a class="navbar-brand" href="{{ url('/') }}">
+                            <img src="{{ asset('assets/images/logo.png') }}" alt="Logo">
                         </a>
 
                         <!-- <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -50,11 +50,8 @@
                         </button> -->
                         <div class="search-bar mx-lg-4">
                             <form class="search-form" autocomplete="off">
-                                <input type="search"
-                                    name="s"
-                                    placeholder="Search products..."
-                                    class="search-input"
-                                    id="searchInput">
+                                <input type="search" name="s" placeholder="Search products..."
+                                    class="search-input" id="searchInput">
 
                                 <!-- Suggestion Box -->
                                 <div class="search-suggestions" id="suggestionBox"></div>
@@ -79,7 +76,7 @@
 
                             <!-- Notification -->
                             <a href="#" class="icon-btn notification-btn">
-                                <img src="{{url('assets/images/bell.png')}}" alt="Notifications">
+                                <img src="{{ asset('assets/images/bell.png') }}" alt="Notifications">
                                 <span class="badge">3</span>
                             </a>
 

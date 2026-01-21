@@ -31,30 +31,34 @@
                             <button class="btn">Food & Cafés</button>
                             <button class="btn">Itineraries</button>
                             <button class="btn">Food & Cafés</button>
+
+                            @foreach ( $articalcategories as $ac)
+                                <button class="btn">{{ $ac->name }}</button>
+                            @endforeach
                         </div>
                         <!-- ARTICLE SLIDER -->
                         <div class="owl-carousel article-slider mb-4">
                             <a href="artical-detail">
                                 <div class="article-card-2">
-                                    <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg">
+                                    <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}">
                                     <p>Discover breathtaking ski destinations and winter adventures.</p>
                                 </div>
                             </a>
                             <a href="artical-detail">
                                 <div class="article-card-2">
-                                    <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg">
+                                    <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}">
                                     <p>Discover breathtaking ski destinations and winter adventures.</p>
                                 </div>
                             </a>
                             <a href="artical-detail">
                                 <div class="article-card-2">
-                                    <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg">
+                                    <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}">
                                     <p>Discover breathtaking ski destinations and winter adventures.</p>
                                 </div>
                             </a>
                             <a href="artical-detail">
                                 <div class="article-card-2">
-                                    <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg">
+                                    <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}">
                                     <p>Discover breathtaking ski destinations and winter adventures.</p>
                                 </div>
                             </a>
@@ -62,7 +66,7 @@
                         <!-- ARTICLE -->
                         <a href="artical-detail" class="art-link">
                             <div class="article-card">
-                                <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
+                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
                                 <div class="article-content">
                                     <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
                                     <div class="article-meta mb-2">
@@ -87,7 +91,7 @@
                         </a>
                         <a href="artical-detail" class="art-link">
                             <div class="article-card">
-                                <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
+                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
                                 <div class="article-content">
                                     <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
                                     <div class="article-meta mb-2">
@@ -112,7 +116,7 @@
                         </a>
                         <a href="artical-detail" class="art-link">
                             <div class="article-card">
-                                <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
+                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
                                 <div class="article-content">
                                     <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
                                     <div class="article-meta mb-2">
@@ -137,7 +141,7 @@
                         </a>
                         <a href="artical-detail" class="art-link">
                             <div class="article-card">
-                                <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
+                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
                                 <div class="article-content">
                                     <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
                                     <div class="article-meta mb-2">
@@ -162,7 +166,7 @@
                         </a>
                         <a href="artical-detail" class="art-link">
                             <div class="article-card">
-                                <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
+                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
                                 <div class="article-content">
                                     <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
                                     <div class="article-meta mb-2">
@@ -194,7 +198,7 @@
                             <h5>Related Articles</h5>
                             <a href="#!">
                                 <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <img src="{{url('assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg')}}">
                                     <div>
                                         <h6>Manali mountain views</h6>
                                         <small>Instagram</small>
@@ -203,7 +207,7 @@
                             </a>
                             <a href="#!">
                                 <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <img src="{{url('assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg')}}">
                                     <div>
                                         <h6>Manali mountain views</h6>
                                         <small>Instagram</small>
@@ -212,7 +216,7 @@
                             </a>
                             <a href="#!">
                                 <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <img src="{{url('assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg')}}">
                                     <div>
                                         <h6>Manali mountain views</h6>
                                         <small>Instagram</small>
@@ -221,7 +225,7 @@
                             </a>
                             <a href="#!">
                                 <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <img src="{{url('assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg')}}">
                                     <div>
                                         <h6>Manali mountain views</h6>
                                         <small>Instagram</small>

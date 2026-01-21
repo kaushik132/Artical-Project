@@ -1,18 +1,18 @@
 <!-- footer -->
 
 <div class="bottom-nav">
-    <a href="index.php" class="nav-item active">
-        <img src="{{url('assets/images/copywriting 1.png')}}" alt="Article">
+    <a href="{{url('/')}}" class="nav-item active">
+        <img src="{{asset('assets/images/copywriting_1.png')}}" alt="Article">
         <span>Article</span>
     </a>
 
     <a href="post.php" class="nav-item">
-        <img src="{{url('assets/images/copywriting 2.png')}}" alt="Post">
+        <img src="{{asset('assets/images/copywriting_2.png')}}" alt="Post">
         <span>Post</span>
     </a>
 
     <a href="video.php" class="nav-item">
-        <img src="{{url('assets/images/copywriting 3.png')}}" alt="Travel Clips">
+        <img src="{{asset('assets/images/copywriting_3.png')}}" alt="Travel Clips">
         <span>Clips</span>
     </a>
 </div>
@@ -47,13 +47,13 @@
 
 
 <!-- Bootstrap JS Bundle -->
-<script src="{{url('assets/js/jquery-3.6.1.min.js')}}" type="text/javascript"></script>
-<script src="{{url('assets/js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
-<script src="{{url('assets/js/owl.carousel.min.js')}}" type="text/javascript"></script>
-<!-- <script src="{{url('assets/js/isotope-pkd-min.js')}}"></script> -->
+<script src="{{asset('assets/js/jquery-3.6.1.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/bootstrap.bundle.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('assets/js/owl.carousel.min.js')}}" type="text/javascript"></script>
+<!-- <script src="{{asset('assets/js/isotope-pkd-min.js')}}"></script> -->
 <!-- <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script> -->
-<!-- <script src="{{url('assets/js/aos.js')}}" type="text/javascript"></script> -->
-<script src="{{url('assets/js/custom.js')}}" type="text/javascript" defer></script>
+<!-- <script src="{{asset('assets/js/aos.js')}}" type="text/javascript"></script> -->
+<script src="{{asset('assets/js/custom.js')}}" type="text/javascript" defer></script>
 
 
 
