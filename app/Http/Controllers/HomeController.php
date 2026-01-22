@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Models\ArticalCategory;
 use App\Models\Artical;
+use App\Models\Post;
+use App\Models\PostCategory;
+use App\Models\Hashtag;
+
+
 
 class HomeController extends Controller
 {
@@ -53,7 +58,15 @@ class HomeController extends Controller
 
     public function Post()
     {
-        return view('post');
+        $postcategories = PostCategory::all();
+        $posthashtags = Hashtag::all();
+        $post = Post::with('postcategory')
+            ->where('is_active', 1)
+            ->get();
+
+        return view('post', compact('postcategories', 'post', 'posthashtags'));
+
+
     }
 
     public function videos()

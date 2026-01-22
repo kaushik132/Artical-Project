@@ -20,5 +20,6 @@ Route::group([
 
     $router->resource('post-categories', PostCategoryController::class);
     $router->resource('hashtags', HashtagController::class);
+    $router->resource('posts', PostController::class);
 
 });
