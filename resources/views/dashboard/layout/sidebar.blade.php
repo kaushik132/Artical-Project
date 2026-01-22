@@ -10,7 +10,7 @@
                             <h6 class="stats-title">Profile Stats</h6>
                             <div class="profile-stats">
                                 <div>
-                                    <b>32</b>
+                                    <b>{{$countArtical}}</b>
                                     <span>Articles</span>
                                 </div>
                                 <div>
@@ -19,14 +19,14 @@
                                 </div>
                                 <div>
                                     <b>72</b>
-                                    <span>Saved</span>
+                                    <span>Travel Clips</span>
                                 </div>
                             </div>
                         </div>
                         <div class="menu-box">
                             <a href="{{url('/')}}" class="menu-item">
                                 <span class="menu-black"> <img src="{{url('assets/images/copywriting_1.png')}}" alt="Share"></span>
-                                <span>Artical</span>
+                                <span>Article</span>
                             </a>
                             <a href="{{url('post')}}" class="menu-item">
                                 <span class="menu-black"> <img src="{{url('assets/images/copywriting_2.png')}}" alt="Share"></span>

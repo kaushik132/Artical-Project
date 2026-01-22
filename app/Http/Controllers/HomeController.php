@@ -5,28 +5,50 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 use App\Models\ArticalCategory;
+use App\Models\Artical;
 
 class HomeController extends Controller
 {
-     public function __construct()
+    public function __construct()
     {
         $profile = Profile::first();
+        $countArtical = Artical::where('is_active', 1)->count();
         view()->share('profile', $profile);
+        view()->share('countArtical', $countArtical);
     }
 
 
     public function index()
     {
-        $articalcategories = ArticalCategory::all();
 
-        return view('index',compact('articalcategories'));
+        $articalcategories = ArticalCategory::all();
+        $artical = Artical::with('articalcategory')
+            ->where('is_active', 1)
+            ->get();
+
+        $randomArtical = Artical::where('is_active', 1)
+            ->inRandomOrder()
+            ->take(10)
+            ->get();
+
+        $resentArtical = Artical::where('is_active', 1)
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
+
+        return view('index', compact('articalcategories', 'artical', 'randomArtical', 'resentArtical'));
     }
 
 
 
-    public function articalDetail()
+    public function articalDetail($slug = null)
     {
-        return view('artical-detail');
+       $articalcategories = Artical::take(10)->get();
+       $artical = Artical::with('articalcategory')
+           ->where('slug', $slug)
+           ->where('is_active', 1)
+           ->first();
+        return view('artical-detail',compact('articalcategories', 'artical'));
     }
 
     public function Post()

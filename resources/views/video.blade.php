@@ -322,4 +322,21 @@
     </div>
 </section>
 
+<div class="share-overlay" id="shareOverlay">
+    <div class="share-popup">
+        <div class="share-header">
+            <h6>Share this</h6>
+            <span class="close-share">&times;</span>
+        </div>
+
+        <div class="share-icons">
+            <a href="#" class="share facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="share linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="share telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="share copy"><i class="fa fa-link"></i></a>
+        </div>
+    </div>
+</div>
+
 @endsection

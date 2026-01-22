@@ -145,9 +145,9 @@
                             </div>
                             <div class="post-social">
                                 <ul>
-                                    <li><a href="#!"><img src="assets/images/linkedin.png" alt=""></a></li>
                                     <li><a href="#!"><img src="assets/images/social-2.png" alt=""></a></li>
                                     <li><a href="#!"><img src="assets/images/social-3.png" alt=""></a></li>
+                                    <li><a href="#!"><img src="assets/images/social-4.png" alt=""></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -187,171 +187,7 @@
 
                         </div>
                     </div>
-                    <div class="article-card" id="target-post">
-                        <div class="post-rofile">
-                            <div class="post-p">
-                                <ul>
-                                    <li><img src="assets/images/profile.jpg" alt=""></li>
-                                    <li>
-                                        <h6>Riya Sharma</h6> <span>12 Jan 2026</span>
 
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="post-social">
-                                <ul>
-                                    <li><a href="#!"><img src="assets/images/linkedin.png" alt=""></a></li>
-                                    <li><a href="#!"><img src="assets/images/social-2.png" alt=""></a></li>
-                                    <li><a href="#!"><img src="assets/images/social-3.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
-                        <div class="article-content">
-
-                            <div class="artical-contenet-post">
-                                <div class="action-buttons">
-                                    <a href="#!"
-                                        class="action-btn like-btn"
-                                        data-liked="false"
-                                        data-count="23">
-
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like <br>
-                                        <small><span class="like-count">23</span> Likes</small>
-                                    </a>
-
-
-                                    <a href="#!" class="action-btn share-btn">
-                                        <i class="fa fa-share-alt"></i> Share<br><small>234 Reviews</small>
-                                    </a>
-                                </div>
-                                <a href="#!" class="save-icon">
-                                    <img src="assets/images/save.png" alt="">
-                                </a>
-                            </div>
-                            <p class="mt-2 read-more-text" data-limit="200">
-                                Jacksonville offers accessibility, beaches, and scenic beauty for road trips across Florida. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, nam deserunt, vero et facere adipisci doloribus sint, facilis at sunt ea nisi doloremque numquam. Itaque vero aliquid inventore laudantium quisquam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae quidem, consequuntur sequi voluptas eum molestias excepturi ab quos dignissimos dolorum ipsam error aliquid impedit mollitia corporis quod? Aperiam, neque fuga.
-                            </p>
-
-                            <div class="tag-list mt-2">
-                            <a href="#">#BudgetTravel</a>
-                            <a href="#">#BudgetTravel</a>
-                            <a href="#">#BudgetTravel</a>
-                                                    </div>
-
-                        </div>
-                    </div>
-                    <div class="article-card" id="target-post">
-                        <div class="post-rofile">
-                            <div class="post-p">
-                                <ul>
-                                    <li><img src="assets/images/profile.jpg" alt=""></li>
-                                    <li>
-                                        <h6>Riya Sharma</h6> <span>12 Jan 2026</span>
-
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="post-social">
-                                <ul>
-                                    <li><a href="#!"><img src="assets/images/linkedin.png" alt=""></a></li>
-                                    <li><a href="#!"><img src="assets/images/social-2.png" alt=""></a></li>
-                                    <li><a href="#!"><img src="assets/images/social-3.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
-                        <div class="article-content">
-
-                            <div class="artical-contenet-post">
-                                <div class="action-buttons">
-                                    <a href="#!"
-                                        class="action-btn like-btn"
-                                        data-liked="false"
-                                        data-count="23">
-
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like <br>
-                                        <small><span class="like-count">23</span> Likes</small>
-                                    </a>
-
-
-                                    <a href="#!" class="action-btn share-btn">
-                                        <i class="fa fa-share-alt"></i> Share<br><small>234 Reviews</small>
-                                    </a>
-                                </div>
-                                <a href="#!" class="save-icon">
-                                    <img src="assets/images/save.png" alt="">
-                                </a>
-                            </div>
-                            <p class="mt-2 read-more-text" data-limit="200">
-                                Jacksonville offers accessibility, beaches, and scenic beauty for road trips across Florida. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, nam deserunt, vero et facere adipisci doloribus sint, facilis at sunt ea nisi doloremque numquam. Itaque vero aliquid inventore laudantium quisquam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae quidem, consequuntur sequi voluptas eum molestias excepturi ab quos dignissimos dolorum ipsam error aliquid impedit mollitia corporis quod? Aperiam, neque fuga.
-                            </p>
-
-                            <div class="tag-list mt-2">
-                            <a href="#">#BudgetTravel</a>
-                            <a href="#">#BudgetTravel</a>
-                            <a href="#">#BudgetTravel</a>
-                                                    </div>
-
-                        </div>
-                    </div>
-                    <div class="article-card" id="target-post">
-                        <div class="post-rofile">
-                            <div class="post-p">
-                                <ul>
-                                    <li><img src="assets/images/profile.jpg" alt=""></li>
-                                    <li>
-                                        <h6>Riya Sharma</h6> <span>12 Jan 2026</span>
-
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="post-social">
-                                <ul>
-                                    <li><a href="#!"><img src="assets/images/linkedin.png" alt=""></a></li>
-                                    <li><a href="#!"><img src="assets/images/social-2.png" alt=""></a></li>
-                                    <li><a href="#!"><img src="assets/images/social-3.png" alt=""></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
-                        <div class="article-content">
-
-                            <div class="artical-contenet-post">
-                                <div class="action-buttons">
-                                    <a href="#!"
-                                        class="action-btn like-btn"
-                                        data-liked="false"
-                                        data-count="23">
-
-                                        <i class="fa-regular fa-heart"></i>
-                                        Like <br>
-                                        <small><span class="like-count">23</span> Likes</small>
-                                    </a>
-
-
-                                    <a href="#" class="action-btn share-btn">
-                                        <i class="fa fa-share-alt"></i> Share<br><small>234 Reviews</small>
-                                    </a>
-                                </div>
-                                <a href="#!" class="save-icon">
-                                    <img src="assets/images/save.png" alt="">
-                                </a>
-                            </div>
-                            <p class="mt-2 read-more-text" data-limit="200">
-                                Jacksonville offers accessibility, beaches, and scenic beauty for road trips across Florida. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, nam deserunt, vero et facere adipisci doloribus sint, facilis at sunt ea nisi doloremque numquam. Itaque vero aliquid inventore laudantium quisquam. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repudiandae quidem, consequuntur sequi voluptas eum molestias excepturi ab quos dignissimos dolorum ipsam error aliquid impedit mollitia corporis quod? Aperiam, neque fuga.
-                            </p>
-
-                            <div class="tag-list mt-2">
-                            <a href="#">#BudgetTravel</a>
-                            <a href="#">#BudgetTravel</a>
-                            <a href="#">#BudgetTravel</a>
-                                                    </div>
-
-                        </div>
-                    </div>
 
 
 
@@ -432,6 +268,23 @@
         </div>
     </div>
 </section>
+
+<div class="share-overlay" id="shareOverlay">
+    <div class="share-popup">
+        <div class="share-header">
+            <h6>Share this</h6>
+            <span class="close-share">&times;</span>
+        </div>
+
+        <div class="share-icons">
+            <a href="#" class="share facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="share linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="share telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="share copy"><i class="fa fa-link"></i></a>
+        </div>
+    </div>
+</div>
 
 
 

@@ -18,7 +18,7 @@
 </div>
 
 <!-- SHARE POPUP -->
-<div class="share-overlay" id="shareOverlay">
+{{-- <div class="share-overlay" id="shareOverlay">
     <div class="share-popup">
         <div class="share-header">
             <h6>Share this</h6>
@@ -33,7 +33,7 @@
             <a href="#" class="share copy"><i class="fa fa-link"></i></a>
         </div>
     </div>
-</div>
+</div> --}}
 
 
 

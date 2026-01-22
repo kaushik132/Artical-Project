@@ -15,5 +15,10 @@ Route::group([
     $router->resource('profiles', ProfileController::class);
 
     $router->resource('artical-categories', ArticalCategoryController::class);
+    $router->resource('articals', ArticalController::class);
+
+
+    $router->resource('post-categories', PostCategoryController::class);
+    $router->resource('hashtags', HashtagController::class);
 
 });

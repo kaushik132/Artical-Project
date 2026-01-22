@@ -20,175 +20,63 @@
         <div class="container-fluid">
             <div class="row g-4">
                 <!-- LEFT SIDEBAR -->
-             @include('dashboard.layout.sidebar')
+                @include('dashboard.layout.sidebar')
                 <!-- CENTER CONTENT -->
                 <div class="col-lg-6 mt-0 mt-md-2">
                     <div class="main-content">
                         <!-- CATEGORY -->
                         <div class="category-pills mb-3">
-                            <button class="btn active">Destinations</button>
-                            <button class="btn">Itineraries</button>
-                            <button class="btn">Food & Cafés</button>
-                            <button class="btn">Itineraries</button>
-                            <button class="btn">Food & Cafés</button>
+                            <button class="btn active" data-category="All">All</button>
 
-                            @foreach ( $articalcategories as $ac)
-                                <button class="btn">{{ $ac->name }}</button>
+                            @foreach ($articalcategories as $ac)
+                                <button class="btn" data-category="{{ $ac->name }}">
+                                    {{ $ac->name }}
+                                </button>
                             @endforeach
                         </div>
+
                         <!-- ARTICLE SLIDER -->
                         <div class="owl-carousel article-slider mb-4">
-                            <a href="artical-detail">
-                                <div class="article-card-2">
-                                    <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}">
-                                    <p>Discover breathtaking ski destinations and winter adventures.</p>
-                                </div>
-                            </a>
-                            <a href="artical-detail">
-                                <div class="article-card-2">
-                                    <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}">
-                                    <p>Discover breathtaking ski destinations and winter adventures.</p>
-                                </div>
-                            </a>
-                            <a href="artical-detail">
-                                <div class="article-card-2">
-                                    <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}">
-                                    <p>Discover breathtaking ski destinations and winter adventures.</p>
-                                </div>
-                            </a>
-                            <a href="artical-detail">
-                                <div class="article-card-2">
-                                    <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}">
-                                    <p>Discover breathtaking ski destinations and winter adventures.</p>
-                                </div>
-                            </a>
+                            @foreach ($randomArtical as $randomArticals)
+                                <a href="artical-detail">
+                                    <div class="article-card-2">
+                                        <img src="{{ url('uploads/' . $randomArticals->image) }}" alt="{{$randomArticals->alt}}">
+                                        <p>{{ $randomArticals->title}}</p>
+                                    </div>
+                                </a>
+
+                            @endforeach
+
                         </div>
                         <!-- ARTICLE -->
-                        <a href="artical-detail" class="art-link">
-                            <div class="article-card">
-                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
-                                <div class="article-content">
-                                    <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
-                                    <div class="article-meta mb-2">
-                                        By Riya Sharma • Jan 8, 2026
-                                    </div>
-                                    <p>
-                                        Jacksonville offers accessibility, beaches, and scenic beauty for road trips across
-                                        Florida.
-                                    </p>
-                                    <a href="artical-detail" class="text-decoration-none text-dark fw-semibold">Read
-                                        More →</a>
-                                    <div class="action-buttons">
-                                        <a href="#!" class="action-btn share-btn">
-                                            <i class="fa fa-share-alt"></i> Share
-                                        </a>
-                                        <a href="#" class="action-btn">
-                                            <i class="fa fa-bookmark"></i> Save to List
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="artical-detail" class="art-link">
-                            <div class="article-card">
-                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
-                                <div class="article-content">
-                                    <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
-                                    <div class="article-meta mb-2">
-                                        By Riya Sharma • Jan 8, 2026
-                                    </div>
-                                    <p>
-                                        Jacksonville offers accessibility, beaches, and scenic beauty for road trips across
-                                        Florida.
-                                    </p>
-                                    <a href="artical-detail" class="text-decoration-none text-dark fw-semibold">Read
-                                        More →</a>
-                                    <div class="action-buttons">
-                                        <a href="#!" class="action-btn share-btn">
-                                            <i class="fa fa-share-alt"></i> Share
-                                        </a>
-                                        <a href="#" class="action-btn">
-                                            <i class="fa fa-bookmark"></i> Save to List
-                                        </a>
+                        @foreach ($artical as $articals)
+                            <a href="{{url('artical-detail/'.$articals->slug)}}" class="art-link" style="text-decoration: none; color: #000;"
+                                data-category="{{ $articals->articalcategory->name }}">
+
+                                <div class="article-card">
+                                    <img src="{{ url('uploads/' . $articals->image)}}"
+                                        alt="{{$articals->alt}}">
+
+                                    <div class="article-content">
+                                        <h4>{{ $articals->title ?? 'Article Title' }}</h4>
+
+                                        <div class="article-meta mb-2">
+                                            By {{ $articals->writer_name ?? 'Admin' }} •
+                                            {{ $articals->created_at->format('M d, Y') }}
+                                        </div>
+
+                                        <p>{{ Str::limit($articals->content , 200)}}</p>
+
+                                        <span class="text-decoration-none text-dark fw-semibold">
+                                            Read More →
+                                        </span>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="artical-detail" class="art-link">
-                            <div class="article-card">
-                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
-                                <div class="article-content">
-                                    <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
-                                    <div class="article-meta mb-2">
-                                        By Riya Sharma • Jan 8, 2026
-                                    </div>
-                                    <p>
-                                        Jacksonville offers accessibility, beaches, and scenic beauty for road trips across
-                                        Florida.
-                                    </p>
-                                    <a href="artical-detail" class="text-decoration-none text-dark fw-semibold">Read
-                                        More →</a>
-                                    <div class="action-buttons">
-                                        <a href="#!" class="action-btn share-btn">
-                                            <i class="fa fa-share-alt"></i> Share
-                                        </a>
-                                        <a href="#" class="action-btn">
-                                            <i class="fa fa-bookmark"></i> Save to List
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="artical-detail" class="art-link">
-                            <div class="article-card">
-                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
-                                <div class="article-content">
-                                    <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
-                                    <div class="article-meta mb-2">
-                                        By Riya Sharma • Jan 8, 2026
-                                    </div>
-                                    <p>
-                                        Jacksonville offers accessibility, beaches, and scenic beauty for road trips across
-                                        Florida.
-                                    </p>
-                                    <a href="artical-detail" class="text-decoration-none text-dark fw-semibold">Read
-                                        More →</a>
-                                    <div class="action-buttons">
-                                        <a href="#!" class="action-btn share-btn">
-                                            <i class="fa fa-share-alt"></i> Share
-                                        </a>
-                                        <a href="#" class="action-btn">
-                                            <i class="fa fa-bookmark"></i> Save to List
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="artical-detail" class="art-link">
-                            <div class="article-card">
-                                <img src="{{url('assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg')}}" alt="">
-                                <div class="article-content">
-                                    <h4>Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
-                                    <div class="article-meta mb-2">
-                                        By Riya Sharma • Jan 8, 2026
-                                    </div>
-                                    <p>
-                                        Jacksonville offers accessibility, beaches, and scenic beauty for road trips across
-                                        Florida.
-                                    </p>
-                                    <a href="artical-detail" class="text-decoration-none text-dark fw-semibold">Read
-                                        More →</a>
-                                    <div class="action-buttons">
-                                        <a href="#!" class="action-btn share-btn">
-                                            <i class="fa fa-share-alt"></i> Share
-                                        </a>
-                                        <a href="#" class="action-btn">
-                                            <i class="fa fa-bookmark"></i> Save to List
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endforeach
+
+
+
                     </div>
                 </div>
                 <!-- RIGHT SIDEBAR -->
@@ -196,46 +84,72 @@
                     <div class="sidebar-right">
                         <div class="sidebar-box">
                             <h5>Related Articles</h5>
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="{{url('assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg')}}">
+                            @foreach ($resentArtical as $resentArticals)
+                                <a href="#!" class="sidebar-item">
+                                    <img src="{{ url('uploads/' . $resentArticals->image) }}"
+                                        alt="{{$resentArticals->alt}}">
                                     <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
+                                        <h6>{{ $resentArticals->title}}</h6>
+                                        <small>{{ $resentArticals->created_at->format('M d, Y') }}</small>
                                     </div>
-                                </div>
-                            </a>
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="{{url('assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg')}}">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="{{url('assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg')}}">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="{{url('assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg')}}">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
+                                </a>
+
+                            @endforeach
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
+    <div class="share-overlay" id="shareOverlay">
+    <div class="share-popup">
+        <div class="share-header">
+            <h6>Share this</h6>
+            <span class="close-share">&times;</span>
+        </div>
+
+        <div class="share-icons">
+            <a href="#" class="share facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="share linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="share telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="share copy"><i class="fa fa-link"></i></a>
+        </div>
+    </div>
+</div>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const categoryButtons = document.querySelectorAll(".category-pills .btn");
+    const articles = document.querySelectorAll(".art-link");
+
+    categoryButtons.forEach(btn => {
+        btn.addEventListener("click", function () {
+
+            // Active class handle
+            categoryButtons.forEach(b => b.classList.remove("active"));
+            this.classList.add("active");
+
+            const selectedCategory = this.getAttribute("data-category");
+
+            articles.forEach(article => {
+                const articleCategory = article.getAttribute("data-category");
+
+                if (selectedCategory === "All" || articleCategory === selectedCategory) {
+                    article.style.display = "block";
+                } else {
+                    article.style.display = "none";
+                }
+            });
+        });
+    });
+
+});
+</script>
+
 @endsection

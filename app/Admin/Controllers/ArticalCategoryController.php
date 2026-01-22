@@ -29,12 +29,6 @@ class ArticalCategoryController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
-        $grid->column('slug', __('Slug'));
-        $grid->column('seo_title', __('Seo title'));
-        $grid->column('seo_des', __('Seo des'));
-        $grid->column('seo_key', __('Seo key'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
@@ -52,11 +46,7 @@ class ArticalCategoryController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
         $show->field('slug', __('Slug'));
-        $show->field('seo_title', __('Seo title'));
-        $show->field('seo_des', __('Seo des'));
-        $show->field('seo_key', __('Seo key'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
+
 
         return $show;
     }
@@ -77,9 +67,8 @@ class ArticalCategoryController extends AdminController
         $form->saving(function (Form $form) {
             $form->slug = Str::slug($form->name);
         });
-        $form->textarea('seo_title', __('Seo title'));
-        $form->textarea('seo_des', __('Seo description'));
-        $form->textarea('seo_key', __('Seo keyword'));
+        $form->switch('is_active', 'Is Active')->default(1);
+     
 
         return $form;
     }

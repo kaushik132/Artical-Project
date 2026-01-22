@@ -62,40 +62,38 @@
                 <div class="main-content">
 
                     <!-- CATEGORY -->
-                    <div class="category-pills mb-3">
+                    {{-- <div class="category-pills mb-3">
                         <button class="btn active">Destinations</button>
                         <button class="btn">Itineraries</button>
                         <button class="btn">Food & Cafés</button>
                         <button class="btn">Itineraries</button>
                         <button class="btn">Food & Cafés</button>
-                    </div>
+                    </div> --}}
 
 
 
 
                     <!-- ARTICLE -->
                     <div class="article-card">
-                        <a href="index.php" class="text-decoration-none text-dark fw-semibold back-page"><i class="fa-solid fa-arrow-left-long"></i> back</a>
-                        <h4 class="mt-2">Why you must include a whirlwind trip to Jacksonville while in Florida</h4>
+                        <a href="{{url('/')}}" class="text-decoration-none text-dark fw-semibold back-page"><i class="fa-solid fa-arrow-left-long"></i> back</a>
+                        <h4 class="mt-2">{{$artical->title}}</h4>
                         <div class="article-meta mb-2">
-                            By Riya Sharma • Jan 8, 2026
+                             By {{ $artical->writer_name ?? 'Admin' }} •
+                                            {{ $artical->created_at->format('M d, Y') }}
                             <div class="action-buttons">
                                 <a href="#" class="action-btn share-btn">
                                     <i class="fa fa-share-alt"></i> Share
                                 </a>
 
-                                <a href="#" class="action-btn">
-                                    <i class="fa fa-bookmark"></i> Save to List
-                                </a>
+
                             </div>
 
                         </div>
-                        <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg" alt="">
+                        <img src="{{url('uploads/' . $artical->image)}}" alt="{{$artical->alt}}" >
                         <div class="article-content">
 
                             <p>
-                                Over the past couple of seasons, the vast resort of La Plagne– linked to Les Arcs as part of the 425km Paradiski ski area – has been starting at the top. Live 3000 is the name for the expansion just below the area’s top point of 3,080m and now it’s quicker and more comfortable to get there.
-                                The reborn two-stage Roche de Mio gondola from Plagne Bellecôte, one of the main village centres, provides travel to 2,739m Roche de Mio itself in just nine minutes, with the Glaciers lift servicing the last short leg. The improvements also cut the time to the top from Plagne Centre itself. The top of the first stage is Col de Forcle, itself an impressive spot with runs down to Bellcote, but also over to the pretty bowl runs all the way down to the 1,250m village of Champagny-en-Vanoise. The gondola’s second stage also has Aérolive, two completely open-air cabins (just the frame!) with a maximum of six riders held in by harnesses, getting 360° panoramic views (€29pp). At the top, you can relax on a sun lounger on Café Sixieme Ciel’s panoramic terrace. January is an ideal time for a Caribbean cruise, particularly to the Antilles. However, with so many options to choose from, first-time visitors to the region can easily feel a bit overwhelmed. Each island in the Lesser Antilles has its own unique appeal. Guadeloupe boasts lush forests and mangroves, while Barbados enchants with its golden beaches and rich colonial heritage. Saint Lucia offers a dramatic landscape dominated by the Pitons, Grenada delights with its fragrant spices, and St Vincent & the Grenadines features beautiful gardens a
+                                {!! $artical->content !!}
                             </p>
 
 
@@ -112,37 +110,19 @@
 
                     <div class="sidebar-box">
                         <h5>Related Articles</h5>
+@foreach ($articalcategories as $articalcategoriess)
+                        <a href="{{url('artical-detail/' . $articalcategoriess->slug)}}" class="sidebar-item">
+                            <img src="{{ url('uploads/' . $articalcategoriess->image) }}"
+                                alt="{{$articalcategoriess->alt}}">
+                            <div>
+                                <h6>{{ $articalcategoriess->title}}</h6>
+                                {{-- <small>{{ $resentArticals->created_at->format('M d, Y') }}</small> --}}
+                            </div>
+                        </a>
 
-                        <div class="sidebar-item">
-                            <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                            <div>
-                                <h6>Manali mountain views</h6>
-                                <small>Instagram</small>
-                            </div>
-                        </div>
+@endforeach
 
-                        <div class="sidebar-item">
-                            <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                            <div>
-                                <h6>Manali mountain views</h6>
-                                <small>Instagram</small>
-                            </div>
-                        </div>
-                        <div class="sidebar-item">
-                            <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                            <div>
-                                <h6>Manali mountain views</h6>
-                                <small>Instagram</small>
-                            </div>
-                        </div>
 
-                        <div class="sidebar-item">
-                            <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                            <div>
-                                <h6>Manali mountain views</h6>
-                                <small>Instagram</small>
-                            </div>
-                        </div>
                     </div>
 
 
@@ -153,7 +133,60 @@
     </div>
 </section>
 
+<div class="share-overlay" id="shareOverlay"
+     data-title="{{ $artical->title }}"
+     data-url="{{ url()->current() }}">
 
+    <div class="share-popup">
+        <div class="share-header">
+            <h6>Share this</h6>
+            <span class="close-share">&times;</span>
+        </div>
+
+        <div class="share-icons">
+            <a href="#" class="share facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="share whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="share linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="share telegram"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="share copy"><i class="fa fa-link"></i></a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const overlay = document.getElementById('shareOverlay');
+    const title = encodeURIComponent(overlay.dataset.title);
+    const url   = encodeURIComponent(overlay.dataset.url);
+
+    const facebook = document.querySelector('.share.facebook');
+    const whatsapp = document.querySelector('.share.whatsapp');
+    const linkedin = document.querySelector('.share.linkedin');
+    const telegram = document.querySelector('.share.telegram');
+
+    facebook.href  = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+    whatsapp.href  = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+    linkedin.href  = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+    telegram.href  = `https://t.me/share/url?url=${url}&text=${title}`;
+
+    // Open all share links in new tab
+    [facebook, whatsapp, linkedin, telegram].forEach(link => {
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+    });
+
+    document.querySelector('.share.copy').addEventListener('click', function (e) {
+        e.preventDefault();
+        navigator.clipboard.writeText(decodeURIComponent(url));
+        alert('Link copied!');
+    });
+
+});
+</script>
 
 
 
