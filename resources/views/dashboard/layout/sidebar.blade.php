@@ -14,7 +14,7 @@
                                     <span>Articles</span>
                                 </div>
                                 <div>
-                                    <b>46</b>
+                                    <b>{{$countPost}}</b>
                                     <span>Posts</span>
                                 </div>
                                 <div>

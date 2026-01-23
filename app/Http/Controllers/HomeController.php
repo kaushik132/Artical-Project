@@ -9,6 +9,8 @@ use App\Models\Artical;
 use App\Models\Post;
 use App\Models\PostCategory;
 use App\Models\Hashtag;
+use App\Models\TravelClipCategory;
+use App\Models\TravelClip;
 
 
 
@@ -18,8 +20,11 @@ class HomeController extends Controller
     {
         $profile = Profile::first();
         $countArtical = Artical::where('is_active', 1)->count();
+        $countPost = Post::where('is_active', 1)->count();
+
         view()->share('profile', $profile);
         view()->share('countArtical', $countArtical);
+        view()->share('countPost', $countPost);
     }
 
 
@@ -58,19 +63,22 @@ class HomeController extends Controller
 
     public function Post()
     {
+        $articals = Artical::where('is_active', 1)->inRandomOrder()->take(10)->get();
         $postcategories = PostCategory::all();
         $posthashtags = Hashtag::all();
         $post = Post::with('postcategory')
             ->where('is_active', 1)
             ->get();
 
-        return view('post', compact('postcategories', 'post', 'posthashtags'));
+        return view('post', compact('postcategories', 'post', 'posthashtags', 'articals'));
 
 
     }
 
     public function videos()
     {
-        return view('video');
+        $travelclipcategories = TravelClipCategory::where('is_active', 1)->get();
+        $travelclips = TravelClip::with('travelclipcategory')->where('is_active', 1)->get();
+        return view('video',compact('travelclipcategories','travelclips'));
     }
 }

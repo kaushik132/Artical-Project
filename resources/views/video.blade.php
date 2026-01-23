@@ -1,342 +1,210 @@
 @extends('dashboard.layout.main')
 @section('content')
+    <style>
+        .video-tag a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-<style>
-    .video-tag a {
-        color: #fff;
-        text-decoration: none;
-    }
+        .sidebar-item {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 12px;
+            text-decoration: none;
+            color: #333;
+        }
 
-    .sidebar-item {
-        display: flex;
-        gap: 12px;
-        margin-bottom: 12px;
-        text-decoration: none;
-        color: #333;
-    }
+        .thumb-wrap {
+            position: relative;
+            width: 90px;
+            height: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
 
-    .thumb-wrap {
-        position: relative;
-        width: 90px;
-        height: 60px;
-        border-radius: 8px;
-        overflow: hidden;
-        flex-shrink: 0;
-    }
+        .thumb-wrap .thumb {
+            width: 80px;
+            object-fit: cover;
+        }
 
-    .thumb-wrap .thumb {
-        width: 80px;
-        object-fit: cover;
-    }
+        .play-icon {
+            position: absolute;
+            top: 48%;
+            left: 47%;
+            width: 28px;
+            height: 28px;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            opacity: 0.9;
+        }
 
-    .play-icon {
-        position: absolute;
-        top: 48%;
-        left: 47%;
-        width: 28px;
-        height: 28px;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        opacity: 0.9;
-    }
+        .sidebar-item:hover .play-icon {
+            transform: translate(-50%, -50%) scale(1.1);
+            opacity: 1;
+        }
 
-    .sidebar-item:hover .play-icon {
-        transform: translate(-50%, -50%) scale(1.1);
-        opacity: 1;
-    }
-
-    .sidebar-item .play-icon {
-        width: 28px;
-        height: 28px;
-        border-radius: 12px;
-        object-fit: cover;
-    }
-</style>
-
-
-<section class="artical-sec">
-    <div class="container-fluid">
-        <div class="row g-4">
-
-            <!-- LEFT SIDEBAR -->
-            @include('dashboard.layout.sidebar')
-            <!-- CENTER CONTENT -->
-            <div class="col-lg-6 mt-0 mt-md-2">
-                <div class="main-content">
-
-                    <!-- CATEGORY -->
-                  <div class="category-pills mb-3">
-                        <button class="btn active">Destinations</button>
-                        <button class="btn">Itineraries</button>
-                        <button class="btn">Food & Cafés</button>
-                        <button class="btn">Itineraries</button>
-                        <button class="btn">Food & Cafés</button>
-                    </div>
-
-                    <div class="row g-4">
-
-                        <!-- VIDEO CARD -->
-                        <div class="col-lg-4 col-md-6 video-tag">
-                            <div class="video-card"
-                                onclick="window.open('https://www.youtube.com/shorts/bMyrJ7kZuMs','_blank')">
-
-                                <span class="duration">0:20</span>
-
-                                <!-- THUMBNAIL -->
-                                <img src="https://img.youtube.com/vi/bMyrJ7kZuMs/maxresdefault.jpg"
-                                    class="video-thumb">
-
-                                <!-- PLAY ICON IMAGE -->
-                                <img src="assets/images/Frame 85.png" class="play-btn" alt="Play">
-
-                                <div class="video-info">
-                                    <p>Why you must include a whirlwind trip to...</p>
-                                    <div class="video-actions">
-                                        <a href="#" class="share-btn"><img src="assets/images/Frame 48.png"></a>
-                                        <a href="#"><img src="assets/images/Frame 49.png"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="video-card"
-                                onclick="window.open('https://youtube.com/shorts/jBk0gR31Gus?si=Q7OjGJUn3umcWHOb','_blank')">
-
-                                <span class="duration">0:30</span>
-
-                                <!-- THUMBNAIL -->
-                                <img src="https://img.youtube.com/vi/jBk0gR31Gus/maxresdefault.jpg" class="video-thumb">
+        .sidebar-item .play-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+    </style>
 
 
-                                <!-- PLAY ICON IMAGE -->
-                                <img src="assets/images/Frame 85.png" class="play-btn" alt="Play">
+    <section class="artical-sec">
+        <div class="container-fluid">
+            <div class="row g-4">
 
-                                <div class="video-info">
-                                    <p>Why you must include a whirlwind trip to...</p>
-                                    <div class="video-actions">
-                                        <a href="#" class="share-btn"><img src="assets/images/Frame 48.png"></a>
-                                        <a href="#"><img src="assets/images/Frame 49.png"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 video-tag">
-                            <div class="video-card"
-                                onclick="window.open('https://www.youtube.com/shorts/bMyrJ7kZuMs','_blank')">
+                <!-- LEFT SIDEBAR -->
+                @include('dashboard.layout.sidebar')
+                <!-- CENTER CONTENT -->
+                <div class="col-lg-6 mt-0 mt-md-2">
+                    <div class="main-content">
 
-                                <span class="duration">0:20</span>
+                        <!-- CATEGORY -->
+                        <div class="category-pills mb-3">
+                            <button class="btn active" data-category="all" type="button">All</button>
 
-                                <!-- THUMBNAIL -->
-                                <img src="https://img.youtube.com/vi/bMyrJ7kZuMs/maxresdefault.jpg"
-                                    class="video-thumb">
-
-                                <!-- PLAY ICON IMAGE -->
-                                <img src="assets/images/Frame 85.png" class="play-btn" alt="Play">
-
-                                <div class="video-info">
-                                    <p>Why you must include a whirlwind trip to...</p>
-                                    <div class="video-actions">
-                                        <a href="#" class="share-btn"><img src="assets/images/Frame 48.png"></a>
-                                        <a href="#"><img src="assets/images/Frame 49.png"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="video-card"
-                                onclick="window.open('https://youtube.com/shorts/jBk0gR31Gus?si=Q7OjGJUn3umcWHOb','_blank')">
-
-                                <span class="duration">0:30</span>
-
-                                <!-- THUMBNAIL -->
-                                <img src="https://img.youtube.com/vi/jBk0gR31Gus/maxresdefault.jpg" class="video-thumb">
-
-
-                                <!-- PLAY ICON IMAGE -->
-                                <img src="assets/images/Frame 85.png" class="play-btn" alt="Play">
-
-                                <div class="video-info">
-                                    <p>Why you must include a whirlwind trip to...</p>
-                                    <div class="video-actions">
-                                        <a href="#" class="share-btn"><img src="assets/images/Frame 48.png"></a>
-                                        <a href="#"><img src="assets/images/Frame 49.png"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 video-tag">
-                            <div class="video-card"
-                                onclick="window.open('https://www.youtube.com/shorts/bMyrJ7kZuMs','_blank')">
-
-                                <span class="duration">0:20</span>
-
-                                <!-- THUMBNAIL -->
-                                <img src="https://img.youtube.com/vi/bMyrJ7kZuMs/maxresdefault.jpg"
-                                    class="video-thumb">
-
-                                <!-- PLAY ICON IMAGE -->
-                                <img src="assets/images/Frame 85.png" class="play-btn" alt="Play">
-
-                                <div class="video-info">
-                                    <p>Why you must include a whirlwind trip to...</p>
-                                    <div class="video-actions">
-                                        <a href="#" class="share-btn"><img src="assets/images/Frame 48.png"></a>
-                                        <a href="#"><img src="assets/images/Frame 49.png"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="video-card"
-                                onclick="window.open('https://youtube.com/shorts/jBk0gR31Gus?si=Q7OjGJUn3umcWHOb','_blank')">
-
-                                <span class="duration">0:30</span>
-
-                                <!-- THUMBNAIL -->
-                                <img src="https://img.youtube.com/vi/jBk0gR31Gus/maxresdefault.jpg" class="video-thumb">
-
-
-                                <!-- PLAY ICON IMAGE -->
-                                <img src="assets/images/Frame 85.png" class="play-btn" alt="Play">
-
-                                <div class="video-info">
-                                    <p>Why you must include a whirlwind trip to...</p>
-                                    <div class="video-actions">
-                                        <a href="#" class="share-btn"><img src="assets/images/Frame 48.png"></a>
-                                        <a href="#"><img src="assets/images/Frame 49.png"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 video-tag">
-                            <div class="video-card"
-                                onclick="window.open('https://www.youtube.com/shorts/bMyrJ7kZuMs','_blank')">
-
-                                <span class="duration">0:20</span>
-
-                                <!-- THUMBNAIL -->
-                                <img src="https://img.youtube.com/vi/bMyrJ7kZuMs/maxresdefault.jpg"
-                                    class="video-thumb">
-
-                                <!-- PLAY ICON IMAGE -->
-                                <img src="assets/images/Frame 85.png" class="play-btn" alt="Play">
-
-                                <div class="video-info">
-                                    <p>Why you must include a whirlwind trip to...</p>
-                                    <div class="video-actions">
-                                        <a href="#" class="share-btn"><img src="assets/images/Frame 48.png"></a>
-                                        <a href="#"><img src="assets/images/Frame 49.png"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6">
-                            <div class="video-card"
-                                onclick="window.open('https://youtube.com/shorts/jBk0gR31Gus?si=Q7OjGJUn3umcWHOb','_blank')">
-
-                                <span class="duration">0:30</span>
-
-                                <!-- THUMBNAIL -->
-                                <img src="https://img.youtube.com/vi/jBk0gR31Gus/maxresdefault.jpg" class="video-thumb">
-
-
-                                <!-- PLAY ICON IMAGE -->
-                                <img src="assets/images/Frame 85.png" class="play-btn" alt="Play">
-
-                                <div class="video-info">
-                                    <p>Why you must include a whirlwind trip to...</p>
-                                    <div class="video-actions">
-                                        <a href="#" class="share-btn"><img src="assets/images/Frame 48.png"></a>
-                                        <a href="#"><img src="assets/images/Frame 49.png"></a>
-                                    </div>
-                                </div>
-                            </div>
+                            @foreach ($travelclipcategories as $travelclipcategory)
+                                <button class="btn" type="button" data-category="{{ $travelclipcategory->id }}">
+                                    {{ $travelclipcategory->name }}
+                                </button>
+                            @endforeach
                         </div>
 
 
 
+
+                        <div class="row g-4">
+
+                            <!-- VIDEO CARD -->
+
+                            @foreach ($travelclips as $travelclip)
+                                <div class="col-lg-4 col-md-6 video-tag"
+                                    data-category="{{ $travelclip->travel_clip_id }}">
+
+                                    <div class="video-card" onclick="window.open('{{ $travelclip->video_link }}','_blank')">
+
+                                        <span class="duration">{{ $travelclip->time_duration }}</span>
+
+                                        <img src="{{ asset('uploads/' . $travelclip->thumbnail) }}"
+                                            alt="{{ $travelclip->alt }}" class="video-thumb">
+
+                                        <img src="{{ url('assets/images/Frame 85.png') }}" class="play-btn" alt="Play">
+
+                                        <div class="video-info">
+                                            <p>{{ $travelclip->short_content }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+
+
+
+
+
+
+
+                        </div>
 
                     </div>
-
                 </div>
-            </div>
 
-            <!-- RIGHT SIDEBAR -->
-            <div class="col-lg-3">
-                <div class="sidebar-right">
+                <!-- RIGHT SIDEBAR -->
+                <div class="col-lg-3">
+                    <div class="sidebar-right">
 
-                    <div class="sidebar-box">
-                        <h5>Related Articles</h5>
+                        <div class="sidebar-box">
+                            <h5>Related Articles</h5>
 
-                        <a href="#!">
-                            <div class="sidebar-item">
-                                <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                <div>
-                                    <h6>Manali mountain views</h6>
-                                    <small>Instagram</small>
+                            <a href="#!">
+                                <div class="sidebar-item">
+                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <div>
+                                        <h6>Manali mountain views</h6>
+                                        <small>Instagram</small>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <a href="#!">
-                            <div class="sidebar-item">
-                                <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                <div>
-                                    <h6>Manali mountain views</h6>
-                                    <small>Instagram</small>
+                            <a href="#!">
+                                <div class="sidebar-item">
+                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <div>
+                                        <h6>Manali mountain views</h6>
+                                        <small>Instagram</small>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
-                        <a href="#!">
-                            <div class="sidebar-item">
-                                <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                <div>
-                                    <h6>Manali mountain views</h6>
-                                    <small>Instagram</small>
+                            </a>
+                            <a href="#!">
+                                <div class="sidebar-item">
+                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <div>
+                                        <h6>Manali mountain views</h6>
+                                        <small>Instagram</small>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
 
-                        <a href="#!">
-                            <div class="sidebar-item">
-                                <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                <div>
-                                    <h6>Manali mountain views</h6>
-                                    <small>Instagram</small>
+                            <a href="#!">
+                                <div class="sidebar-item">
+                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <div>
+                                        <h6>Manali mountain views</h6>
+                                        <small>Instagram</small>
+                                    </div>
                                 </div>
-                            </div>
-                        </a>
+                            </a>
+
+                        </div>
+
+
 
                     </div>
-
-
-
                 </div>
+
             </div>
-
         </div>
-    </div>
-</section>
+    </section>
 
-<div class="share-overlay" id="shareOverlay">
-    <div class="share-popup">
-        <div class="share-header">
-            <h6>Share this</h6>
-            <span class="close-share">&times;</span>
-        </div>
 
-        <div class="share-icons">
-            <a href="#" class="share facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="share whatsapp"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" class="share linkedin"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="share telegram"><i class="fab fa-telegram-plane"></i></a>
-            <a href="#" class="share copy"><i class="fa fa-link"></i></a>
-        </div>
-    </div>
-</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    console.log('Travel clip filter JS loaded ✅');
+
+    const categoryBtns = document.querySelectorAll('.category-pills .btn');
+    const videos = document.querySelectorAll('.video-tag');
+
+    console.log('Buttons:', categoryBtns.length);
+    console.log('Videos:', videos.length);
+
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function () {
+
+            const selectedCategory = this.dataset.category;
+            console.log('Clicked category:', selectedCategory);
+
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            videos.forEach(video => {
+                const videoCategory = video.dataset.category;
+
+                if (selectedCategory === 'all' || videoCategory === selectedCategory) {
+                    video.style.display = '';
+                } else {
+                    video.style.display = 'none';
+                }
+            });
+        });
+    });
+
+});
+</script>
 
 @endsection

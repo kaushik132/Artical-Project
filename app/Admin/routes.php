@@ -22,4 +22,8 @@ Route::group([
     $router->resource('hashtags', HashtagController::class);
     $router->resource('posts', PostController::class);
 
+
+    $router->resource('travel-clip-categories', TravelClipCategoryController::class);
+    $router->resource('travel-clips', TravelClipController::class);
+
 });

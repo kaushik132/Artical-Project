@@ -104,30 +104,17 @@
                         <!-- post SLIDER -->
                         <div class="owl-carousel article-slider mb-4">
 
-                            <a href="#target-post">
-                                <div class="article-card-2">
-                                    <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg">
-                                    <p>Discover breathtaking ski destinations and winter adventures.</p>
-                                </div>
-                            </a>
-                            <a href="#target-post">
-                                <div class="article-card-2">
-                                    <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg">
-                                    <p>Discover breathtaking ski destinations and winter adventures.</p>
-                                </div>
-                            </a>
-                            <a href="#target-post">
-                                <div class="article-card-2">
-                                    <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg">
-                                    <p>Discover breathtaking ski destinations and winter adventures.</p>
-                                </div>
-                            </a>
-                            <a href="#target-post">
-                                <div class="article-card-2">
-                                    <img src="assets/images/8d0d7f3d7fd5c595282933f6385548b7f523c7d8.jpg">
-                                    <p>Discover breathtaking ski destinations and winter adventures.</p>
-                                </div>
-                            </a>
+
+                            @foreach ($articals as $item)
+                                <a href="{{ route('artical-detail', $item->slug) }}">
+                                    <div class="article-card-2">
+                                        <img src="{{ url('uploads/' . $item->image) }}" alt="{{ $item->alt }}">
+                                        <p>{{ $item->title }}</p>
+                                    </div>
+                                </a>
+                            @endforeach
+
+
 
 
                         </div>
@@ -236,44 +223,20 @@
                         <div class="sidebar-box">
                             <h5>Related Articles</h5>
 
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
 
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
+                            @foreach ($articals as $articalss)
+                                <a href="{{ route('artical-detail', $articalss->slug) }}">
+                                    <div class="sidebar-item">
+                                        <img src="{{ url('uploads/' . $articalss->image) }}" alt="{{ $articalss->alt }}">
+                                        <div>
+                                            <h6>{{ $articalss->title }}</h6>
+                                            <small>{{ $articalss->created_at->format('M d, Y') }}</small>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
+                                </a>
+                            @endforeach
 
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
+
 
                         </div>
 
@@ -364,31 +327,4 @@
 
 
 
-    {{-- <script>
-        document.addEventListener("DOMContentLoaded", function() {
-
-            const buttons = document.querySelectorAll('.category-pills .btn');
-            const posts = document.querySelectorAll('.article-card');
-
-            buttons.forEach(button => {
-                button.addEventListener('click', function() {
-
-                    // active class handle
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    this.classList.add('active');
-
-                    const category = this.dataset.category;
-
-                    posts.forEach(post => {
-                        if (category === 'all' || post.dataset.category === category) {
-                            post.style.display = "block";
-                        } else {
-                            post.style.display = "none";
-                        }
-                    });
-                });
-            });
-
-        });
-    </script> --}}
 @endsection
