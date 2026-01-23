@@ -134,7 +134,8 @@
 
 
                         @foreach ($post as $posts)
-                            <div class="article-card" id="target-post" data-category="{{ $posts->post_category_id }}">
+                            <div class="article-card" id="target-post" data-category="{{ $posts->post_category_id }}"
+                                data-hashtags="{{ is_array($posts->hashtags_id) ? implode(',', $posts->hashtags_id) : '' }}">
                                 <div class="post-rofile">
                                     <div class="post-p">
                                         <ul>
@@ -302,61 +303,65 @@
     </div>
 
     <script>
-document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
 
-    const categoryBtns = document.querySelectorAll('.category-pills .btn');
-    const hashtagBtns  = document.querySelectorAll('.hashtag-filter a');
-    const posts = document.querySelectorAll('.article-card');
+            const categoryBtns = document.querySelectorAll('.category-pills .btn');
+            const hashtagBtns = document.querySelectorAll('.hashtag-filter a');
+            const posts = document.querySelectorAll('.article-card');
 
-    let activeCategory = 'all';
-    let activeHashtag  = 'all';
+            let activeCategory = 'all';
+            let activeHashtag = 'all';
 
-    function filterPosts() {
+            function filterPosts() {
 
-        posts.forEach(post => {
+                posts.forEach(post => {
 
-            const postCategory = post.dataset.category;
-            const postHashtags = JSON.parse(post.dataset.hashtags || '[]');
+                    const postCategory = post.dataset.category;
+                    const postHashtags = post.dataset.hashtags ?
+                        post.dataset.hashtags.split(',') // ✅ FIX HERE
+                        :
+                        [];
 
-            const categoryMatch =
-                activeCategory === 'all' || postCategory == activeCategory;
+                    const categoryMatch =
+                        activeCategory === 'all' || postCategory == activeCategory;
 
-            const hashtagMatch =
-                activeHashtag === 'all' ||
-                postHashtags.includes(Number(activeHashtag));
+                    const hashtagMatch =
+                        activeHashtag === 'all' ||
+                        postHashtags.includes(activeHashtag);
 
-            post.style.display =
-                categoryMatch && hashtagMatch ? 'block' : 'none';
+                    post.style.display =
+                        (categoryMatch && hashtagMatch) ? 'block' : 'none';
+                });
+            }
+
+            /* CATEGORY FILTER */
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    activeCategory = this.dataset.category || 'all';
+                    filterPosts();
+                });
+            });
+
+            /* HASHTAG FILTER */
+            hashtagBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    hashtagBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    activeHashtag = this.dataset.hashtag || 'all';
+                    filterPosts();
+                });
+            });
+
         });
-    }
+    </script>
 
-    /* CATEGORY FILTER */
-    categoryBtns.forEach(btn => {
-        btn.addEventListener('click', function () {
-
-            categoryBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-
-            activeCategory = this.dataset.category || 'all';
-            filterPosts();
-        });
-    });
-
-    /* HASHTAG FILTER */
-    hashtagBtns.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-
-            hashtagBtns.forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-
-            activeHashtag = this.dataset.hashtag;
-            filterPosts();
-        });
-    });
-
-});
-</script>
 
 
     {{-- <script>
