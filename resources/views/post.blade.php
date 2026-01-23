@@ -77,6 +77,12 @@
         .article-slider a {
             text-decoration: none;
         }
+.like-count {
+    transition: opacity 0.15s ease;
+}
+
+
+
     </style>
 
     <section class="artical-sec">
@@ -154,13 +160,26 @@
 
                                     <div class="artical-contenet-post">
                                         <div class="action-buttons">
-                                            <a href="#!" class="action-btn like-btn" data-liked="false"
-                                                data-count="23">
+                                            @php $ip = request()->ip(); @endphp
 
-                                                <i class="fa-regular fa-heart"></i>
+                                            <a href="javascript:void(0)"
+                                                class="action-btn like-btn {{ $posts->isLikedByIp($ip) ? 'liked' : '' }}"
+                                                data-id="{{ $posts->id }}">
+
+                                                <i
+                                                    class="{{ $posts->isLikedByIp($ip) ? 'fa-solid' : 'fa-regular' }} fa-heart"></i>
                                                 Like <br>
-                                                <small><span class="like-count">23</span> Likes</small>
+                                                <small>
+                                                    <span class="like-count"
+                                                        data-count="{{ $posts->postLikes->count() ?? 0 }}">
+                                                        {{ $posts->postLikes->count() ?? 0 }}
+                                                    </span>
+
+
+                                                    Likes
+                                                </small>
                                             </a>
+
 
 
                                             <a href="#!" class="action-btn share-btn">
@@ -265,6 +284,13 @@
         </div>
     </div>
 
+
+
+
+
+
+
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
 
@@ -325,6 +351,62 @@
         });
     </script>
 
+ <script>
+document.querySelectorAll('.like-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+
+        if (this.classList.contains('loading')) return;
+        this.classList.add('loading');
+
+        const postId = this.dataset.id;
+        const likeBtn = this;
+        const countSpan = likeBtn.querySelector('.like-count');
+
+        // cache last valid count
+        const lastCount = parseInt(countSpan.dataset.count) || 0;
+
+        // 🔹 Temporary hide count while request in progress
+        countSpan.style.visibility = 'hidden';
+
+        fetch("{{ route('post.like') }}", {
+            method: "POST",
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ post_id: postId })
+        })
+        .then(res => res.json())
+        .then(data => {
+            // server count safe
+            const finalCount = Number.isInteger(data.count) ? data.count : lastCount;
+
+            // 🔹 Update DOM and show count
+            countSpan.innerText = finalCount;
+            countSpan.dataset.count = finalCount;
+            countSpan.style.visibility = 'visible';
+
+            const icon = likeBtn.querySelector('i');
+            if (data.liked) {
+                icon.classList.remove('fa-regular');
+                icon.classList.add('fa-solid');
+                likeBtn.classList.add('liked');
+            } else {
+                icon.classList.remove('fa-solid');
+                icon.classList.add('fa-regular');
+                likeBtn.classList.remove('liked');
+            }
+        })
+        .catch(() => {
+            countSpan.innerText = lastCount;
+            countSpan.style.visibility = 'visible';
+        })
+        .finally(() => {
+            likeBtn.classList.remove('loading');
+        });
+    });
+});
+</script>
 
 
 @endsection

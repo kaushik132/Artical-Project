@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\PostLike;
 
 class Post extends Model
 {
@@ -28,4 +29,18 @@ class Post extends Model
             'hashtag_id'     // related FK
         );
     }
+
+public function postLikes()
+{
+    return $this->hasMany(PostLike::class, 'post_id');
+}
+
+public function isLikedByIp($ip)
+{
+    return $this->postLikes()
+        ->where('ip_address', $ip)
+        ->exists();
+}
+
+
 }

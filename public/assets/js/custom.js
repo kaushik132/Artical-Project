@@ -72,60 +72,60 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 // serch bar autocomplete
 
-const searchInput = document.getElementById("searchInput");
-const suggestionBox = document.getElementById("suggestionBox");
+// const searchInput = document.getElementById("searchInput");
+// const suggestionBox = document.getElementById("suggestionBox");
 
-/* Demo data (replace with API / backend) */
-const suggestions = [
-    "Travel Backpack",
-    "Mountain Shoes",
-    "Camping Tent",
-    "Waterproof Jacket",
-    "Travel Camera",
-    "Hiking Bag",
-    "Trekking Shoes",
-];
+// /* Demo data (replace with API / backend) */
+// const suggestions = [
+//     "Travel Backpack",
+//     "Mountain Shoes",
+//     "Camping Tent",
+//     "Waterproof Jacket",
+//     "Travel Camera",
+//     "Hiking Bag",
+//     "Trekking Shoes",
+// ];
 
-searchInput.addEventListener("input", function () {
-    const value = this.value.toLowerCase();
-    suggestionBox.innerHTML = "";
+// searchInput.addEventListener("input", function () {
+//     const value = this.value.toLowerCase();
+//     suggestionBox.innerHTML = "";
 
-    if (value.length === 0) {
-        suggestionBox.classList.remove("active");
-        return;
-    }
+//     if (value.length === 0) {
+//         suggestionBox.classList.remove("active");
+//         return;
+//     }
 
-    const filtered = suggestions.filter((item) =>
-        item.toLowerCase().includes(value),
-    );
+//     const filtered = suggestions.filter((item) =>
+//         item.toLowerCase().includes(value),
+//     );
 
-    if (filtered.length === 0) {
-        suggestionBox.classList.remove("active");
-        return;
-    }
+//     if (filtered.length === 0) {
+//         suggestionBox.classList.remove("active");
+//         return;
+//     }
 
-    filtered.forEach((item) => {
-        const div = document.createElement("div");
-        div.classList.add("search-item");
-        div.textContent = item;
+//     filtered.forEach((item) => {
+//         const div = document.createElement("div");
+//         div.classList.add("search-item");
+//         div.textContent = item;
 
-        div.addEventListener("click", () => {
-            searchInput.value = item;
-            suggestionBox.classList.remove("active");
-        });
+//         div.addEventListener("click", () => {
+//             searchInput.value = item;
+//             suggestionBox.classList.remove("active");
+//         });
 
-        suggestionBox.appendChild(div);
-    });
+//         suggestionBox.appendChild(div);
+//     });
 
-    suggestionBox.classList.add("active");
-});
+//     suggestionBox.classList.add("active");
+// });
 
-/* Close on outside click */
-document.addEventListener("click", (e) => {
-    if (!e.target.closest(".search-bar")) {
-        suggestionBox.classList.remove("active");
-    }
-});
+// /* Close on outside click */
+// document.addEventListener("click", (e) => {
+//     if (!e.target.closest(".search-bar")) {
+//         suggestionBox.classList.remove("active");
+//     }
+// });
 
 //end serch bar autocomplete
 

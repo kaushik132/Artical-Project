@@ -18,7 +18,7 @@
                                     <span>Posts</span>
                                 </div>
                                 <div>
-                                    <b>72</b>
+                                    <b>{{$countTravelClip}}</b>
                                     <span>Travel Clips</span>
                                 </div>
                             </div>

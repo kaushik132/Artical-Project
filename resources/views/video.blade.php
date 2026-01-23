@@ -117,46 +117,24 @@
                     <div class="sidebar-right">
 
                         <div class="sidebar-box">
-                            <h5>Related Articles</h5>
+                            <h5>Articles</h5>
 
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
 
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
-                            <a href="#!">
-                                <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
-                                    <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
-                                    </div>
-                                </div>
-                            </a>
+                            @foreach ($articals as $artical)
 
-                            <a href="#!">
+ <a href="#!">
                                 <div class="sidebar-item">
-                                    <img src="assets/images/aa9def214301ac693996ae9995d0b1a6ef690604.jpg">
+                                    <img src="{{ asset('uploads/' . $artical->image) }}" alt="{{$artical->alt}}" class="thumb">
                                     <div>
-                                        <h6>Manali mountain views</h6>
-                                        <small>Instagram</small>
+                                        <h6>{{$artical->title}}</h6>
+                                        <small>{{$artical->created_at->format('M d, Y')}}</small>
                                     </div>
                                 </div>
                             </a>
+                            @endforeach
+
+
+
 
                         </div>
 

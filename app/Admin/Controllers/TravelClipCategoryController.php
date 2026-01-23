@@ -7,6 +7,7 @@ use OpenAdmin\Admin\Form;
 use OpenAdmin\Admin\Grid;
 use OpenAdmin\Admin\Show;
 use \App\Models\TravelClipCategory;
+use Illuminate\Support\Str;
 
 class TravelClipCategoryController extends AdminController
 {
@@ -61,6 +62,13 @@ class TravelClipCategoryController extends AdminController
         $form = new Form(new TravelClipCategory());
 
         $form->text('name', __('Name'));
+         $form->hidden('slug', __('Slug'));
+        $form->saving(function (Form $form) {
+            if ($form->name) {
+                $form->slug = Str::slug($form->name);
+            }
+        });
+
         $form->switch('is_active', __('Is active'))->default(1);
 
 

@@ -26,4 +26,7 @@ Route::group([
     $router->resource('travel-clip-categories', TravelClipCategoryController::class);
     $router->resource('travel-clips', TravelClipController::class);
 
+
+    $router->resource('seos', SeoController::class);
+
 });

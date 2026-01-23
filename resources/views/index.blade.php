@@ -38,7 +38,7 @@
                         <!-- ARTICLE SLIDER -->
                         <div class="owl-carousel article-slider mb-4">
                             @foreach ($randomArtical as $randomArticals)
-                                <a href="artical-detail">
+                                <a href="{{url('artical-detail/'.$randomArticals->slug)}}">
                                     <div class="article-card-2">
                                         <img src="{{ url('uploads/' . $randomArticals->image) }}" alt="{{$randomArticals->alt}}">
                                         <p>{{ $randomArticals->title}}</p>

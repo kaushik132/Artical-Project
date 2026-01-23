@@ -5,7 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Desh Seduniya</title>
+    @if (isset($seo_data['seo_title']))
+        <title>{{ $seo_data['seo_title'] }}</title>
+    @endif
+
+    @if (isset($seo_data['seo_description']))
+        <meta name="description" content="{{ $seo_data['seo_description'] }}" />
+    @endif
+
+    @if (isset($seo_data['keywords']))
+        <meta name="keywords" content="{{ $seo_data['keywords'] }}" />
+    @endif
+
+
+    <meta property="og:title" content="{{ $seo_data['seo_title'] }}">
+    <meta property="og:site_name" content="Codepin">
+
+    @if (isset($canocial))
+        <meta property="og:url" content="{{ $canocial }}">
+    @endif
+
+    <meta property="og:description" content="{{ $seo_data['seo_description'] }}">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="{{ url('uploads/' . $seo_data['seo_image']) }}">
 
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon.png') }}">
@@ -31,6 +53,30 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
+<style>
+    <style>.goog-te-banner-frame.skiptranslate {
+        display: none !important;
+    }
+
+    body {
+        top: 0px !important;
+    }
+
+    .goog-logo-link,
+    .goog-te-gadget {
+        display: none !important;
+    }
+
+    .lang-menu {
+        display: none;
+    }
+
+    .lang-menu.show {
+        display: block;
+    }
+</style>
+
+</style>
 
 <body>
 
@@ -74,6 +120,10 @@
                                 </ul>
                             </div>
 
+                            <!-- Hidden Google Translate -->
+                            <div id="google_translate_element" style="display:none;"></div>
+
+
                             <!-- Notification -->
                             <a href="#" class="icon-btn notification-btn">
                                 <img src="{{ asset('assets/images/bell.png') }}" alt="Notifications">
@@ -112,3 +162,4 @@
             </div>
         </div>
     </header>
+    {{-- HEADER.BLADE.PHP --}}
