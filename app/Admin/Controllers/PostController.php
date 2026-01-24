@@ -31,14 +31,15 @@ class PostController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('postcategory.name', __('Post Category Name'));
- $grid->column('hashtags_id', __('Hashtags'))->display(function ($ids) {
-    if (!$ids) return '-';
-    return Hashtag::whereIn('id', $ids)->pluck('name')->implode(', ');
-});
+        $grid->column('hashtags_id', __('Hashtags'))->display(function ($ids) {
+            if (!$ids) return '-';
+            return Hashtag::whereIn('id', $ids)->pluck('name')->implode(', ');
+        });
 
 
         $grid->column('name', __('Name'));
         $grid->column('image', __('Image'))->image('/uploads/', '80', '80');
+        $grid->column('is_active', 'Is Active')->switch();
 
 
 

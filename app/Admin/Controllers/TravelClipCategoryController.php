@@ -29,6 +29,7 @@ class TravelClipCategoryController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
+          $grid->column('is_active', 'Is Active')->switch();
 
 
         return $grid;

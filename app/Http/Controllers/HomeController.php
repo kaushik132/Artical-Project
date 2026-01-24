@@ -144,7 +144,11 @@ class HomeController extends Controller
 
         $articals = Artical::where('is_active', 1)->inRandomOrder()->take(10)->get();
         $travelclipcategories = TravelClipCategory::where('is_active', 1)->get();
-        $travelclips = TravelClip::with('travelclipcategory')->where('is_active', 1)->get();
+        $travelclips = TravelClip::with('travelclipcategory')
+            ->where('is_active', 1)
+            ->inRandomOrder()
+            ->get();
+
 
 
         $query = TravelClip::with('travelclipcategory')->where('is_active', 1);

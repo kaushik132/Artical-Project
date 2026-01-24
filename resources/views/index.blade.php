@@ -85,7 +85,7 @@
                         <div class="sidebar-box">
                             <h5>Related Articles</h5>
                             @foreach ($resentArtical as $resentArticals)
-                                <a href="#!" class="sidebar-item">
+                                <a href="{{ url('artical-detail', $resentArticals->slug) }}" class="sidebar-item">
                                     <img src="{{ url('uploads/' . $resentArticals->image) }}"
                                         alt="{{$resentArticals->alt}}">
                                     <div>

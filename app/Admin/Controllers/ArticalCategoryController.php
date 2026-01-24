@@ -29,6 +29,7 @@ class ArticalCategoryController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
+          $grid->column('is_active', 'Is Active')->switch();
 
         return $grid;
     }
@@ -68,7 +69,7 @@ class ArticalCategoryController extends AdminController
             $form->slug = Str::slug($form->name);
         });
         $form->switch('is_active', 'Is Active')->default(1);
-     
+
 
         return $form;
     }

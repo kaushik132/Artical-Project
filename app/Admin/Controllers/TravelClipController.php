@@ -33,7 +33,7 @@ class TravelClipController extends AdminController
         $grid->column('travelclipcategory.name', __('Travel Category Name'));
         // $grid->column('time_duration', __('Time duration'));
         $grid->column('thumbnail', __('Thumbnail'))->image('/uploads/',50,50);
-
+  $grid->column('is_active', 'Is Active')->switch();
         return $grid;
     }
 
